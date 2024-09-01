@@ -24,6 +24,7 @@ public class AIController : MonoBehaviour
     [SerializeField] private float m_EvadeRayLength;
 
     private Entity m_Entity;
+    private Movable m_Movable;
     private Vector3 m_MovePosition;
     private Destructible m_SelectedTarget;
 
@@ -34,6 +35,7 @@ public class AIController : MonoBehaviour
     private void Start()
     {
         m_Entity = GetComponent<Entity>();
+        m_Movable = GetComponent<Movable>();
 
         InitTimers();
     }
@@ -109,8 +111,8 @@ public class AIController : MonoBehaviour
 
     private void ActionControlShip()
     {
-        m_Entity.LinearForceControl = m_NavigationLinear;
-        m_Entity.AngularForceControl = ComputeAlinginTorqueNormalized(m_MovePosition, m_Entity.transform) * m_NavigationAngular;
+        m_Movable.LinearForceControl = m_NavigationLinear;
+        m_Movable.AngularForceControl = ComputeAlinginTorqueNormalized(m_MovePosition, m_Entity.transform) * m_NavigationAngular;
     }
 
     private float ComputeAlinginTorqueNormalized(Vector3 targetPositin, Transform ship)

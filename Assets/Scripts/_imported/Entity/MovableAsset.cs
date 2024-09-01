@@ -5,6 +5,7 @@ using UnityEditor;
 /// <summary>
 /// Объект, имеющий движение.
 /// </summary>
+[CreateAssetMenu]
 public class MovableAsset : ScriptableObject
 {
     [Header("Move Settings")]
@@ -17,23 +18,23 @@ public class MovableAsset : ScriptableObject
     [SerializeField] private bool useGravity = false;
 
     [SerializeField] private bool linearDragIsRandom = false;
-    [SerializeField] private float linearDrag = 1;
+    [SerializeField] private float linearDrag = 0;
     [SerializeField] private Vector2 linearDragRandomRange = new Vector2(1, 10);
 
     [SerializeField] private bool angularDragIsRandom = false;
-    [SerializeField] private float angularDrag = 1;
+    [SerializeField] private float angularDrag = 0;
     [SerializeField] private Vector2 angularDragRandomRange = new Vector2(1, 10);
     
     [SerializeField] private bool linearForceIsRandom = false;
-    [SerializeField] private float linearForce = 1;
+    [SerializeField] private float linearForce = 0;
     [SerializeField] private Vector2 linearForceRandomRange = new Vector2(1, 10);
 
     [SerializeField] private bool angularForceIsRandom = false;
-    [SerializeField] private float angularForce = 1;
+    [SerializeField] private float angularForce = 0;
     [SerializeField] private Vector2 angularForceRandomRange = new Vector2(1, 10);
 
     [SerializeField] private bool maxLinearVelocityIsRandom = false;
-    [SerializeField] private float maxLinearVelocity = 1;
+    [SerializeField] private float maxLinearVelocity = 10;
     [SerializeField] private Vector2 maxLinearVelocityRandomRange = new Vector2(1, 10);
 
     [SerializeField] private bool maxAngularVelocityIsRandom = false;
@@ -71,7 +72,7 @@ public class MovableAsset : ScriptableObject
     public class MovableAssetInspector : Editor
     {
         private MovableAsset movableAsset;
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             movableAsset = (MovableAsset)target;
         }

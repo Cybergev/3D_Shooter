@@ -17,6 +17,6 @@ public static class SoundExtensios
 {
     public static void Play(this Sound sound)
     {
-        SoundController.Instance.Play(sound);
+        SoundController.Instance?.Play(sound);
     }
 }

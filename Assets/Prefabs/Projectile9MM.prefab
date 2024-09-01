@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2848589563575206231}
   - component: {fileID: 6863947362127956739}
   - component: {fileID: 3619575083420826869}
+  - component: {fileID: 6464581298966924405}
   m_Layer: 0
   m_Name: Projectile9MM
   m_TagString: Untagged
@@ -29,13 +30,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7249446957890563914}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.015, y: 0.02, z: 0.015}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5186522159674977766
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -178,7 +179,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.025
+  m_Time: 0.03
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -188,7 +189,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.015
+        value: 0.01
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -197,7 +198,7 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0.005
+        value: 0.01
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -249,3 +250,24 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &6464581298966924405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7249446957890563914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be145b85f7c69f8489a7aecb0ff34d53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigid: {fileID: 6863947362127956739}
+  movableAsset: {fileID: 0}
+  projectileAsset: {fileID: 11400000, guid: 10b14c96667114d42bb50416d58a2913, type: 2}
+  m_ImpactEffect:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DestroyEffect:
+    m_PersistentCalls:
+      m_Calls: []

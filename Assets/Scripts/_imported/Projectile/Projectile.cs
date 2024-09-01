@@ -73,17 +73,17 @@ public class Projectile : Movable
             return;
         Impact(collision.transform.root.gameObject);
     }
-    private void Impact(GameObject v_object)
+    private void Impact(GameObject impactObject)
     {
-        if (!v_object)
+        if (!impactObject)
             return;
-        var v_dest = v_object.transform.root.GetComponent<Destructible>();
-        var v_rigid = v_object.transform.root.GetComponent<Rigidbody>();
-        if (v_rigid && hasImpactForce)
-            v_rigid.AddForce(rigid.mass * rigid.velocity * impactForceModifier, ForceMode.Impulse);
-        if (v_dest && (v_dest != parent || projectileAsset.CanDamageParrent))
+        var dest = impactObject.transform.root.GetComponent<Destructible>();
+        var rigid = impactObject.transform.root.GetComponent<Rigidbody>();
+        if (rigid && hasImpactForce)
+            rigid.AddForce(base.rigid.mass * base.rigid.velocity * impactForceModifier, ForceMode.Impulse);
+        if (dest && (dest != parent || projectileAsset.CanDamageParrent))
         {
-            v_dest.ApplyDamage(damage - lostDamge);
+            dest.ApplyDamage(damage - lostDamge);
         }
         if (canBounce && bounceNum < maxBounceNum)
         {
@@ -92,8 +92,8 @@ public class Projectile : Movable
         }
         else
         {
-            SoundController.Instance.Play(impactSFX);
-            Destroy(gameObject);
+            SoundController.Instance?.Play(impactSFX);
+            Destroy(base.gameObject);
         }
         m_ImpactEffect.Invoke();
     }

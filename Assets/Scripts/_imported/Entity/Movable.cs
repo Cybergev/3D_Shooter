@@ -65,6 +65,7 @@ public class Movable : MonoBehaviour
         rigid ??= GetComponent<Rigidbody>();
         if (movableAsset)
             UseAsset(movableAsset);
+        UpdateRigitBody(moveType);
     }
 
     protected virtual void FixedUpdate()
