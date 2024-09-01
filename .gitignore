@@ -21,6 +21,7 @@ sysinfo.txt
 *.csproj
 *.sln
 *.vsidx
+*.vsconfig
 *.suo
 *.svd
 *.unityproj
